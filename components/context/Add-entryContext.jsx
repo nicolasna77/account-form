@@ -24,13 +24,15 @@ function savedInitialValue(entries) {
 
 export const AddEntryProvider = (props) => {
   const [state, setState] = useState(initialValues);
+  const handleFormSubmit = useCallback(async ({ state }) => {
+    setState(state);
+  }, []);
 
   return (
     <AddEntryContext.Provider
       value={{
         entries: state.entries,
         handleFormSubmit,
-
         savedInitialValue,
       }}
     ></AddEntryContext.Provider>
