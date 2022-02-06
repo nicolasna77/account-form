@@ -48,9 +48,13 @@ const Home = () => {
                 </tr>
               )
             )}
-            <tr className="text-red-600 text-right">
-              <td className="border border-gray-400 ">Total : {countOut}</td>
-              <td className="border border-gray-400 ">Total : {countIn}</td>
+            <tr className="text-right">
+              <td className="border text-red-600 border-gray-400 ">
+                Total : {countOut}
+              </td>
+              <td className="border text-green-600 border-gray-400 ">
+                Total : {countIn}
+              </td>
             </tr>
             {result < 0 ? (
               <tr className="text-red-600  ">
