@@ -4,7 +4,7 @@ import FormField from "../components/FormField";
 
 import AddEntryContext from "../components/context/Add-entryContext";
 import Header from "../components/Header";
-import { useCallback, useContext } from "react";
+import { useContext } from "react";
 
 const Add = () => {
   const {
@@ -13,10 +13,6 @@ const Add = () => {
 
   const { handleFormSubmit } = useContext(AddEntryContext);
   const { validationSchema } = useContext(AddEntryContext);
-
-  const submit = () => {
-    useCallback((Input) => handleSubmit(Input), [submit]);
-  };
 
   return (
     <div className=" place-content-center m-auto relative w-5/6 ">

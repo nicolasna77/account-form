@@ -39,7 +39,7 @@ const Home = () => {
                 </tr>
               ) : (
                 <tr key={id} className="tableData text-red-600 text-right">
-                  <td className="border border-gray-400  ">
+                  <td className="border border-gray-400 ">
                     {value}
                     <br />
                     <span>{message}</span>
