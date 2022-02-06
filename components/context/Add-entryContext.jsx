@@ -8,33 +8,24 @@ const validationSchema = yup.object().shape({
   message: yup.string().required().label("message"),
 });
 
-const initialValues = {
-  entries: [
-    { value: "30", message: "finezunfrnez" },
-    { value: "30", message: "finezunfrnez" },
+const savedInitialValue = {
+  savedEntries: [
+    { id: 1, value: 200, message: "Vente Crypto" },
+    { id: 2, value: -400, message: "Achat machine a laver" },
+    { id: 3, value: 600, message: "Paye" },
   ],
 };
 
-function savedInitialValue(entries) {
-  dispatch({
-    type: "saved_InitialValue",
-    payload: entries,
-  });
-}
-
 export const AddEntryProvider = (props) => {
-  const [state, setState] = useState(initialValues);
-  const handleFormSubmit = useCallback(async ({ state }) => {
-    setState(state);
+  const [state, setState] = useState(savedInitialValue.savedEntries);
+  const handleFormSubmit = useCallback((entries) => {
+    setState((currentState) => currentState.concat(entries));
   }, []);
-
+  console.log(state);
   return (
     <AddEntryContext.Provider
-      value={{
-        entries: state.entries,
-        handleFormSubmit,
-        savedInitialValue,
-      }}
+      {...props}
+      value={{ state, handleFormSubmit, validationSchema, savedInitialValue }}
     ></AddEntryContext.Provider>
   );
 };
